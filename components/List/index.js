@@ -8,15 +8,21 @@ export default class List extends Component {
 
     this.state = {
       edit: false,
+      term: '',
     }
 
-    this.onChange = this.onChange.bind(this)
     this.enable = this.enable.bind(this)
     this.toggleEditState = this.toggleEditState.bind(this)
 
     this.update = this.update.bind(this)
     this.remove = this.remove.bind(this)
 
+  }
+
+  componentDidMount() {
+    this.setState({
+      term: this.props.item
+    })
   }
 
   toggleEditState() {
@@ -38,9 +44,15 @@ export default class List extends Component {
   }
 
   update(v) {
+    // Set term state for setting the old value of edit input
+    this.setState({
+      term: v
+    })
+
     if (this.state.edit) {
       this.props.update(this.props.index, v)
     }
+
     this.toggleEditState()
   }
 
@@ -50,7 +62,10 @@ export default class List extends Component {
 
   renderEditForm() {
     return (
-      <Edit enable={ this.enable } update={ this.update } />
+      <Edit
+        enable={ this.enable }
+        update={ this.update }
+        term={ this.state.term } />
     )
   }
 
@@ -138,7 +153,7 @@ export default class List extends Component {
 }
 
 List.propTypes = {
-  index: PropTypes.any.isRequired,
+  index: PropTypes.number.isRequired,
   item: PropTypes.string.isRequired,
   update: PropTypes.func.isRequired,
   remove: PropTypes.func.isRequired,
