@@ -8,7 +8,6 @@ export default class List extends Component {
 
     this.state = {
       edit: false,
-      term: '',
     }
 
     this.onChange = this.onChange.bind(this)
@@ -20,17 +19,12 @@ export default class List extends Component {
 
   }
 
-  onChange(e) {
-    this.setState({ term: e.target.value })
-  }
-
   toggleEditState() {
     let edit = this.state.edit
 
     if (edit) {
       this.setState({
         edit: false,
-        term: '',
       })
     } else {
       this.setState({
