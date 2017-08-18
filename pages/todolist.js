@@ -92,7 +92,7 @@ export default class TodoList extends Component {
         </div>
 
         <div className={`list-content`}>
-          { this.state.items <= 0 ? 'Have no item' : '' }
+          { this.state.items.length <= 0 ? 'Have no item' : '' }
           <ul>
             { this.renderList() }
           </ul>
