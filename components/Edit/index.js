@@ -18,6 +18,9 @@ export default class Edit extends Component {
   }
 
   componentDidMount() {
+    this.setState({
+      term: this.props.term
+    })
     this.textInput.focus()
   }
 
@@ -132,6 +135,7 @@ export default class Edit extends Component {
 }
 
 Edit.propTypes = {
+  term: PropTypes.string.isRequired,
   enable: PropTypes.func.isRequired,
   update: PropTypes.func.isRequired,
 }
