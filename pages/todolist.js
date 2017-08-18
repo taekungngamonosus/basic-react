@@ -78,11 +78,9 @@ export default class TodoList extends Component {
         <h4 className={`header`}>Todo List</h4>
 
         <form className={`form-wrapper`} onSubmit={ this.onSubmitForm }>
-
           <input ref={(input) => { this.textInput = input }}
             className={`form-control`} value={ this.state.term }
             onChange={ this.onChange } />
-
           <button className={`btn-add`}>{` Add `}</button>
         </form>
 
