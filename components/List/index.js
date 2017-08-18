@@ -103,7 +103,7 @@ export default class List extends Component {
             width: 320px;
             float: left;
           }
-          .content-wrapper p :last-child {
+          .content-wrapper p:last-child {
             float: right;
           }
           .btn-edit {
